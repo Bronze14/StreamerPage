@@ -35,7 +35,7 @@ export default function Mainpage() {
           className="flex items-center gap-4 p-6 ml-auto mt-10 mr-20 text-white-500"
           onClick={handleAddTodo}
         >
-          Add new Streamer
+          Add new Streamer&apos;
         </Button>
       </a>
       <div className="my-10 mx-20 relative overflow-x-auto shadow-md sm:rounded-lg">
