@@ -43,7 +43,7 @@ export default function Mainpage() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Streamer's name
+                Streamer name
               </th>
               <th scope="col" className="px-6 py-3">
                 Points
@@ -55,13 +55,13 @@ export default function Mainpage() {
                 Platform
               </th>
               <th scope="col" className="px-6 py-3">
-                <span className="sr-only">Upvote/Downvote</span>
+                <span className="sr-only">Upvote Downvote</span>
               </th>
             </tr>
           </thead>
           <tbody>
             {board.columns.map((column) =>
-              column.streamers.map((streamer) => (
+              column.streamers.map((streamer: Streamer) => (
                 <tr
                   key={streamer.$id}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
