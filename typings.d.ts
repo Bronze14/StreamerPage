@@ -2,13 +2,15 @@ interface Image {
   buckectId: string;
   fileId: string;
 }
-type TypedColumn = "Twitch" | "Kick" | "Rumble" | "TikTok" | "Youtube"
+
+type ColumnType = "Twitch" | "Kick" | "Rumble" | "TikTok" | "Youtube";
+
 interface Streamer {
   $id: string;
   $createdAt: string;
   title: string;
   description: string;
-  platform: TypedColumn;
+  platform: ColumnType;
   image?: Image;
   point: number;
 }

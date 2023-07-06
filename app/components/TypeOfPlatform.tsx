@@ -14,29 +14,25 @@ const types = [
   {
     id: 'Kick',
     name: 'Kick',
-    description:
-      'A new streaming platform that officially rolled out in January 2023.',
+    description: 'A new streaming platform.',
     color: 'bg-green-500',
   },
   {
     id: 'Youtube',
     name: 'Youtube',
-    description:
-      'A video sharing service where users can watch, like, share, comment and upload their own videos.',
+    description: 'A video sharing service.',
     color: 'bg-red-500',
   },
   {
     id: 'TikTok',
     name: 'TikTok',
-    description:
-      "The world's leading destination for short-form mobile videos.",
+    description: 'Platform for short-form mobile videos.',
     color: 'bg-black',
   },
   {
     id: 'Rumble',
     name: 'Rumble',
-    description:
-      'An online video platform, web hosting and cloud services business',
+    description: 'An online video platform',
     color: 'bg-gray-500',
   },
 ]

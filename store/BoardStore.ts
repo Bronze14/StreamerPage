@@ -9,18 +9,18 @@ interface BoardState {
   getBoard: () => void;
   newTaskInput: string;
   description: string;
-  newTaskType: TypedColumn;
+  newTaskType: ColumnType;
   setNewTaskInput: (input: string) => void;
-  setNewTaskType: (columnId: TypedColumn) => void;
+  setNewTaskType: (columnId: ColumnType) => void;
   setDescription: (input: string) => void;
-  addTask: (todo: string, columnId: TypedColumn, description: string) => void;
+  addTask: (todo: string, columnId: ColumnType, description: string) => void;
   addPlus: (streamerId: string) => void;
   addMinus: (streamerId: string) => void;
 }
 
 export const useBoardStore = create<BoardState>((set, get) => ({
   board: {
-    columns: new Map<TypedColumn, Column>(),
+    columns: [] as Column[], 
   },
   newTaskInput: "",
   description: "",
@@ -30,9 +30,9 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     set({ board });
   },
   setNewTaskInput: (input: string) => set({ newTaskInput: input }),
-  setNewTaskType: (columnId: TypedColumn) => set({ newTaskType: columnId }),
+  setNewTaskType: (columnId: ColumnType) => set({ newTaskType: columnId }),
   setDescription: (input: string) => set({ description: input }),
-  addTask: async (todo: string, columnId: TypedColumn, description: string) => {
+  addTask: async (todo: string, columnId: ColumnType, description: string) => {
     try {
       const { $id } = await databases.createDocument(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
@@ -54,7 +54,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
   try {
     const board = get().board;
     const updatedBoard = { ...board };
-    for (const column of updatedBoard.columns.values()) {
+    const columnArray = Array.from(updatedBoard.columns.values());
+    for (const column of columnArray) {
       const streamer = column.streamers.find((s) => s.$id === streamerId);
       if (streamer) {
         streamer.point += 1;
@@ -78,7 +79,8 @@ addMinus: async (streamerId: string) => {
   try {
     const board = get().board;
     const updatedBoard = { ...board };
-    for (const column of updatedBoard.columns.values()) {
+    const columnArray = Array.from(updatedBoard.columns.values());
+    for (const column of columnArray) {
       const streamer = column.streamers.find((s) => s.$id === streamerId);
       if (streamer) {
         streamer.point -= 1;

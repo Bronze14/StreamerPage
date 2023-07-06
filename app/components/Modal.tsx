@@ -43,7 +43,6 @@ function Modal() {
         onClose={closeModal}
       >
         <div className="fixed inset-0 bg-black bg-opacity-25"></div>
-        <div className="flex min-h-full items-center justify-center p-4 text-center"></div>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -53,7 +52,7 @@ function Modal() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0  bg-opacity-25" />
         </Transition.Child>
 
         {/*
@@ -76,7 +75,7 @@ function Modal() {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900 pb-2"
                 >
-                  Add a Streamer
+                  Streamer
                 </Dialog.Title>
                 <div>
                   <input
@@ -84,23 +83,23 @@ function Modal() {
                     value={newTaskInput}
                     onChange={(e) => setNewTaskInput(e.target.value)}
                     placeholder="Enter a streamer's name here"
-                    className="w-full border border-gray-300 rounded-md outline-none p-5"
+                    className="w-full border border-gray-300 rounded-md outline-none p-5 text-gray-900"
                   />
                 </div>
                 <TypeOfPlatform />
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-black-900 pb-2"
+                  className="text-lg font-medium leading-6 text-gray-900 pb-2"
                 >
-                  Add a Description
+                  Description
                 </Dialog.Title>
                 <div>
                   <input
                     type="text"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Enter a streamer's name here"
-                    className="w-full border border-gray-300 rounded-md outline-none p-5"
+                    placeholder="Enter a description here"
+                    className="w-full border border-gray-300 rounded-md outline-none p-5 text-gray-900"
                   />
                 </div>
                 <div className="mt-4">
