@@ -14,7 +14,7 @@
 
 ## Running the Project
 
-1. Clone the repository: `git clone <[repository-url](https://github.com/Bronze14/StreamerPage)>`
+1. Clone the repository: `git clone (https://github.com/Bronze14/StreamerPage)`
 2. Navigate to the project directory: `cd StreamerPage`
 3. Install the dependencies: `npm install`
 4. Set up the environment, including Appwrite (add necessary access keys, configurations, etc.).
