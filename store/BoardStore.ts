@@ -45,6 +45,11 @@ export const useBoardStore = create<BoardState>((set, get) => ({
           point: 0,
         }
       );
+      set({
+        newTaskInput: "",
+        description: "",
+        newTaskType: "Twitch",
+      });
       await get().getBoard();
     } catch (error) {
       console.error(error);

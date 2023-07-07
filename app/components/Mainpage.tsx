@@ -6,6 +6,7 @@ import { Button } from '@material-tailwind/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { LoadingPage } from './loading'
+import { Tooltip } from '@material-tailwind/react'
 
 export default function Mainpage() {
   const openModal = useModalStore((state) => state.openModal)
@@ -78,21 +79,22 @@ export default function Mainpage() {
                     </td>
                     <td className="px-6 py-4">{streamer.point}</td>
                     <td className="px-6 py-4">
-                      {streamer.description.length > MAX_TEXT_LENGTH
-                        ? `${streamer.description.substring(
-                            0,
-                            MAX_TEXT_LENGTH,
-                          )}...`
-                        : streamer.description}
+                      <Tooltip
+                        content={streamer.description}
+                        animate={{
+                          mount: { scale: 1, y: 0 },
+                          unmount: { scale: 0, y: 25 },
+                        }}
+                      >
+                        {streamer.description.length > MAX_TEXT_LENGTH
+                          ? `${streamer.description.substring(
+                              0,
+                              MAX_TEXT_LENGTH,
+                            )}...`
+                          : streamer.description}
+                      </Tooltip>
                     </td>
-                    <td className="px-6 py-4">
-                      {streamer.platform.length > MAX_TEXT_LENGTH
-                        ? `${streamer.platform.substring(
-                            0,
-                            MAX_TEXT_LENGTH,
-                          )}...`
-                        : streamer.platform}
-                    </td>
+                    <td className="px-6 py-4">{streamer.platform}</td>
                     <td className="px-6 py-4 text-right">
                       <button onClick={() => addPlus(streamer.$id)}>
                         <ChevronUpIcon className="h-6 w-6 text-white-600 dark:text-white-500 hover:text-blue-900 hover:underline" />
