@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-gray-800">
-      <body>
+    <html lang="en">
+      <body className="bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500">
         {children}
         <Modal />
       </body>
